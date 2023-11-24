@@ -50,21 +50,22 @@ To get started with the project, follow these steps:
 
 3. **Install dependencies::**
 
-````bash
+```bash
   npm install
-``
-4. **Start the development server:**
-   ```bash
-npm run dev
+```
 
-``
+4. **Start the development server:**
+
+   ```bash
+   npm run dev
+   ```
+
 5. **Open your browser and visit http://localhost:3000 to view your portfolio.**
-````
 
 ## Folder Structure
 
-src: Contains the source code for the portfolio.
-components: React components used to build the portfolio.
-styles: Stylesheets, including Tailwind CSS styles.
-pages: Individual pages of the portfolio.
-assets: Images, fonts, or other static assets.
+**src:** Contains the source code for the portfolio.
+**components:** React components used to build the portfolio.
+**styles:** Stylesheets, including Tailwind CSS styles.
+**pages:** Individual pages of the portfolio.
+**assets:** Images, fonts, or other static assets.
