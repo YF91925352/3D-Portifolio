@@ -65,7 +65,11 @@ To get started with the project, follow these steps:
 ## Folder Structure
 
 **src:** Contains the source code for the portfolio.
+
 **components:** React components used to build the portfolio.
+
 **styles:** Stylesheets, including Tailwind CSS styles.
+
 **pages:** Individual pages of the portfolio.
+
 **assets:** Images, fonts, or other static assets.
