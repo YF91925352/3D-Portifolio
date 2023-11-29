@@ -20,7 +20,7 @@ const Navbar = () => {
       >
         <img src={logo} alt="logo" className="w-10 h-10 object-contain" />
         <span className=" text-white text-[18px]  cursor-pointer hidden sm:block  ">
-          JavaScript Mastery
+          Web Developer
         </span>
       </Link>
       <ul className="list-none hidden sm:flex gap-10">
