@@ -29,6 +29,7 @@ module.exports = {
           "penumbra",
           "castShadow",
           "shadow-mapSize",
+          "options",
         ],
       },
     ],
