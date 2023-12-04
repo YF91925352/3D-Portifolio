@@ -1,29 +1,40 @@
-import { styles } from "../styles";
 import { navLinks } from "../constants";
-import { logo, menu, close } from "../assets";
+import { github, menu, close, linkin } from "../assets";
 import { Link } from "react-router-dom";
 import { useState } from "react";
+import { styles } from "../styles";
+
 const Navbar = () => {
   const [active, setActive] = useState("");
   const [toggle, setToggle] = useState(false);
   return (
     <nav
-      className={`${styles.paddingX} w-full flex justify-between items-center py-5 fixed top-0 z-20 bg-primary`}
+      className={`${styles.paddingX} bg-zinc-900 bg-opacity-95 w-full flex justify-between items-center fixed   z-20 `}
     >
-      <Link
-        to="/"
-        className="flex items-center gap-2"
-        onClick={() => {
-          setActive("");
-          window.scrollTo(0, 0);
-        }}
-      >
-        <img src={logo} alt="logo" className="w-10 h-10 object-contain" />
-        <span className=" text-white text-[18px]  cursor-pointer hidden sm:block  ">
-          Full Stack Developer
-        </span>
-      </Link>
-      <ul className="list-none hidden sm:flex gap-10">
+      <div className="flex ">
+        <Link
+          to="https://github.com/YF91925352"
+          className="flex items-center"
+          onClick={() => {
+            setActive("");
+            window.scrollTo(0, 0);
+          }}
+        >
+          <img src={github} alt="github" className="w-9 h-9 object-contain" />
+        </Link>
+        <Link
+          to="https://www.linkedin.com/in/yifanzhengcn/"
+          className="flex items-center"
+          onClick={() => {
+            setActive("");
+            window.scrollTo(0, 0);
+          }}
+        >
+          <img src={linkin} alt="linkin" className="w-10 h-10 object-contain" />
+        </Link>
+      </div>
+
+      <ul className="list-none hidden sm:flex gap-10 ">
         {navLinks.map((link) => (
           <li
             key={link.id}
