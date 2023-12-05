@@ -7,6 +7,7 @@ import { styles } from "../styles";
 const Navbar = () => {
   const [active, setActive] = useState("");
   const [toggle, setToggle] = useState(false);
+
   return (
     <nav
       className={`${styles.paddingX} bg-zinc-900 bg-opacity-95 w-full flex justify-between items-center fixed   z-20 `}
@@ -39,7 +40,9 @@ const Navbar = () => {
           <li
             key={link.id}
             className={`${
-              active === link.title ? "text-white" : "text-secondary"
+              active === link.title
+                ? "text-white"
+                : "bg-gradient-to-b from-sky-200  via-purple-100 to-pink-100 inline-block text-transparent bg-clip-text"
             } hover:text-white text-[18px] font-medium cursor-pointer`}
             onClick={() => {
               setActive(link.title);

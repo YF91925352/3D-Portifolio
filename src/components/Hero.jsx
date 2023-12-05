@@ -2,7 +2,7 @@ import { styles } from "../styles";
 // import TextSpan from "./TextSpan";
 import { FairyCanvas } from "./canvas";
 import GalaxyCanvas from "./canvas/Galaxy";
-
+import { useState, useEffect } from "react";
 // import { ComputersCanvas } from "./canvas";
 // import { motion } from "framer-motion";
 
@@ -10,11 +10,54 @@ import GalaxyCanvas from "./canvas/Galaxy";
 
 const Hero = () => {
   // const title = "Hi I'm Yifan".split("");
+  const [loopNum, setLoopNum] = useState(0);
+  const [isDeleting, setIsDeleting] = useState(false);
+  const [text, setText] = useState("");
+  const [delta, setDelta] = useState(110 - Math.random() * 100);
+  const [, setIndex] = useState(1);
+  const toRotate = ["Web Developer", "Web Designer"];
+  const period = 500;
 
+  useEffect(() => {
+    let ticker = setInterval(() => {
+      tick();
+    }, delta);
+
+    return () => {
+      clearInterval(ticker);
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [text]);
+
+  const tick = () => {
+    let i = loopNum % toRotate.length;
+    let fullText = toRotate[i];
+    let updatedText = isDeleting
+      ? fullText.substring(0, text.length - 1)
+      : fullText.substring(0, text.length + 1);
+
+    setText(updatedText);
+
+    if (isDeleting) {
+      setDelta((prevDelta) => prevDelta / 2);
+    }
+    if (!isDeleting && updatedText === fullText) {
+      setIsDeleting(true);
+      setIndex((prevIndex) => prevIndex - 1);
+      setDelta(period);
+    } else if (isDeleting && updatedText === "") {
+      setIsDeleting(false);
+      setLoopNum(loopNum + 1);
+      setIndex(1);
+      setDelta(250);
+    } else {
+      setIndex((prevIndex) => prevIndex + 1);
+    }
+  };
   return (
     <section className="relative w-full h-screen">
       <div
-        className={`${styles.paddingX} absolute inset-0 top-[80px] max-w-7xl mx-auto flex  flex-col items- gap-5`}
+        className={`${styles.paddingX} absolute inset-0 top-[100px] max-w-7xl mx-auto flex  flex-col items- gap-5`}
       >
         {/*  <div className="flex flex-col justify-center items-center mt-5">
           <div className="w-5 h-5 rounded-full bg-[#915eff]" />
@@ -23,6 +66,9 @@ const Hero = () => {
 
         <div>
           <h1 className={`${styles.heroHeadText} text-white`}>
+            Hi, {`I'm`} Yifan
+          </h1>
+          <h1 className={`${styles.heroHeadText} text-white`}>
             {/* {title.map((letter, index) => {
               return (
                 <TextSpan key={index}>
@@ -30,17 +76,18 @@ const Hero = () => {
                 </TextSpan>
               );
             })} */}
-            Hi, {`I'm`}
+
             <span className="bg-gradient-to-r from-blue-300 via-purple-100 to-pink-300 inline-block text-transparent bg-clip-text">
-              Yifan
+              {text}
             </span>
           </h1>
-          <p className={`${styles.heroSubText} mt-4  text-white-100`}>
-            A Front-End Software Developer
+          <p className="w-[70%] sm:w-[50%] mt-2">
+            As a front-end software developer, I am dedicated to turing ideas
+            into developing rich web applications and seamless web experiences.
           </p>
           <a href="#about">
             <p className="mt-8 bg-gradient-to-r from-blue-300 via-purple-100 to-pink-300 inline-block text-transparent bg-clip-text">
-              About Me {`>`}
+              More About Me {`>`}
             </p>
           </a>
         </div>
@@ -64,6 +111,40 @@ const Hero = () => {
           </div>
         </a>
       </div> */}
+      <div className="absolute bottom-10 w-full flex justify-between font-thin font-sans text-xs">
+        <div className=" flex items-center justify-center transform rotate-[90deg]">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            height="24"
+            viewBox="0 0 24 24"
+            width="24"
+            transform="rotate(-90)"
+          >
+            <path
+              d="M12 8l-6 6 1.41 1.41L12 10.83l4.59 4.58L18 14z"
+              fill="aliceblue"
+            ></path>
+          </svg>
+          <span>Back To Top</span>
+        </div>
+        <a href="#about">
+          <div className=" flex items-center justify-center transform rotate-[-90deg]">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              height="24"
+              viewBox="0 0 24 24"
+              width="24"
+              transform="rotate(-90)"
+            >
+              <path
+                d="M12 8l-6 6 1.41 1.41L12 10.83l4.59 4.58L18 14z"
+                fill="aliceblue"
+              ></path>
+            </svg>
+            <span>Scroll Down</span>
+          </div>
+        </a>
+      </div>
     </section>
   );
 };
