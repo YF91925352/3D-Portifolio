@@ -7,6 +7,7 @@ import github from "./github.png";
 import menu from "./menu.svg";
 import close from "./close.svg";
 import linkin from "./linkin.png";
+import iphone from "./iphone.png";
 
 import css from "./tech/css.png";
 import docker from "./tech/docker.png";
@@ -61,4 +62,5 @@ export {
   jobit,
   tripguide,
   linkin,
+  iphone,
 };

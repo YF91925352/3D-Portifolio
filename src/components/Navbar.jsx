@@ -1,5 +1,5 @@
 import { navLinks } from "../constants";
-import { github, menu, close, linkin } from "../assets";
+import { github, menu, close, linkin, iphone } from "../assets";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import { styles } from "../styles";
@@ -10,7 +10,7 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`${styles.paddingX} bg-zinc-900 bg-opacity-95 w-full flex justify-between items-center fixed   z-20 `}
+      className={`${styles.paddingX} w-full flex justify-between items-center fixed z-20  `}
     >
       <div className="flex ">
         <Link
@@ -23,6 +23,9 @@ const Navbar = () => {
         >
           <img src={github} alt="github" className="w-9 h-9 object-contain" />
         </Link>
+        <a href="tel:+4591925352" className="flex items-center">
+          <img src={iphone} alt="iphone" className="w-8 h-8 object-contain" />
+        </a>{" "}
         <Link
           to="https://www.linkedin.com/in/yifanzhengcn/"
           className="flex items-center"
@@ -31,25 +34,31 @@ const Navbar = () => {
             window.scrollTo(0, 0);
           }}
         >
-          <img src={linkin} alt="linkin" className="w-10 h-10 object-contain" />
+          <img
+            src={linkin}
+            alt="linkin"
+            className="w-[42px] h-[42px] object-contain"
+          />
         </Link>
       </div>
 
-      <ul className="list-none hidden sm:flex gap-10 ">
+      <ul className=" list-none hidden sm:flex gap-10 ">
         {navLinks.map((link) => (
           <li
             key={link.id}
             className={`${
               active === link.title
-                ? "text-white"
-                : "bg-gradient-to-b from-sky-200  via-purple-100 to-pink-100 inline-block text-transparent bg-clip-text"
+                ? "text-white  "
+                : "bg-gradient-to-t  from-yellow-50 via-blue-100 to-blue-300 inline-block text-transparent bg-clip-text "
             } hover:text-white text-[18px] font-medium cursor-pointer`}
             onClick={() => {
               setActive(link.title);
             }}
           >
             {/* it needs to change to router and use navigate later */}
-            <a href={`${link.id}`}>{link.title}</a>
+            <a href={`${link.id}`} className="font-mono">
+              {link.title}
+            </a>
           </li>
         ))}
       </ul>

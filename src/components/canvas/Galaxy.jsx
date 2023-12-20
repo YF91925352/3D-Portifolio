@@ -38,8 +38,8 @@ const GalaxyCanvas = () => {
             />
             <primitive
               object={galaxy.scene}
-              scale={0.026}
-              position={[0.9, 0.5, -2]}
+              scale={0.02}
+              position={[0.5, 0, -2]}
               rotation={[0, -0.9, -0.1]}
             />
           </mesh>

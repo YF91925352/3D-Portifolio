@@ -18,7 +18,22 @@ export const theme = {
       xs: "450px",
     },
     backgroundImage: {
-      "hero-pattern": "url('/src/assets/herobgc.png')",
+      "hero-pattern": "url('/src/assets/herobgc.jpg')",
+      "about-pattern": "url('/src/assets/about.jpg')",
+    },
+
+    fontFamily: {
+      sans: ["nunito", "sans-serif"],
+      serif: ["Georgia", "Cambria", "Times New Roman", "sans-serif"],
+      mono: [
+        "Menlo",
+        "Monaco",
+        "Times New Roman",
+        "Liberation Mono",
+        "Courier New",
+        "sans-serif",
+      ],
+      pixel: ["Press Start 2P", "sans-serif"],
     },
   },
 };
